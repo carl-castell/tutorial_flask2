@@ -21,4 +21,4 @@ def cookie(slug):
 
 @blueprint.route('/cookies')
 def cookies():
-  return render_template('cookies.html', cookies=cookies_data)
+  return render_template('cookies/index.html', cookies=cookies_data)
