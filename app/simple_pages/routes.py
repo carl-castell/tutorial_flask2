@@ -6,7 +6,7 @@ blueprint = Blueprint('simple_pages', __name__)
 def index():
   name = 'Sam'
   fake_number = 342
-  return render_template('simple_pages_index.html', name=name, visitor_number=fake_number)
+  return render_template('index.html', name=name, visitor_number=fake_number)
 
 @blueprint.route('/about')
 def about():
