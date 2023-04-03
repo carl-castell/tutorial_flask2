@@ -4,3 +4,4 @@ venv
 __pycache__
 downloads
 .pytest_cache
+database.db

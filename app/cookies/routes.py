@@ -1,8 +1,9 @@
 from flask import Blueprint, render_template
+from .models import Cookie
 
 blueprint = Blueprint('cookies', __name__)
 
-
+#needs to be deleted once logic is fixed and adapted to db
 cookies_data = {
   'chocolate-chip' : {'name': 'Chocolate Chip', 'price': '$1.50'},
   'oatmeal-raisin' : {'name': 'Oatmeal Raisin', 'price': '$1.00'},
