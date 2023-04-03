@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Cookieshop{% endblock %}
+
+{% block body %}
+    <h1>Cookies</h1>
+    <ul>
+        {% for slug, cookie in cookies.items() %}
+        <li>
+          {% if cookie['price'] == '$0.25' %}
+            <s>{{ cookie['name'] }}</s>
+          {% else %}
+            <a href="/cookies/{{ slug }}">{{ cookie['name'] }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+{% endblock %}
+
+        
