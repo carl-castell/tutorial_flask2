@@ -5,7 +5,7 @@ from random import randint
 db = SQLAlchemy()
 
 app = Flask(__name__)
-app.config.from_object('config')
+app.config.from_object('app.config')
 
 cookies_data = {
   'chocolate-chip' : {'name': 'Chocolate Chip', 'price': '$1.50'},
@@ -55,6 +55,5 @@ def about_me():
 def legal():
   return send_file('static/downloads/legal.txt', as_attachment=True)
 
-if __name__ == '__main__':
-    app.run()
+
     
