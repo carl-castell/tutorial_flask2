@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, send_file
 from flask_sqlalchemy import SQLAlchemy
 from random import randint
 
@@ -44,9 +44,16 @@ def cookie(slug):
 def about():
   return 'I like cookies'
 
+#example of a redirect
 @app.route('/about-me')
 def about_me():
   return redirect(url_for('about'))
+
+#Download route
+#as atachment parameter triggers download
+@app.route('/legal')
+def legal():
+  return send_file('static/downloads/legal.txt', as_attachment=True)
 
 if __name__ == '__main__':
     app.run()
