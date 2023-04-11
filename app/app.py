@@ -1,5 +1,5 @@
 from flask import Flask
-from . import cookies, simple_pages
+from . import cookies, simple_pages, orders
 from app.extensions.database import db, migrate
 
 
