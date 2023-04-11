@@ -15,10 +15,6 @@ def test_legal_success(client):
   response = client.get('/legal')
   assert response.status_code == 200
   
-#def test_cookie_example_success(client):
-#  # Page loads
-#  response = client.get('/cookies/chocolate-chip')
-#  assert response.status_code == 200  
   
 def test_cookies_index_success(client):
   # Page loads
