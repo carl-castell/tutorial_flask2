@@ -3,23 +3,13 @@ from .models import Cookie
 
 blueprint = Blueprint('cookies', __name__)
 
-#needs to be deleted once logic is fixed and adapted to db
-cookies_data = {
-  'chocolate-chip' : {'name': 'Chocolate Chip', 'price': '$1.50'},
-  'oatmeal-raisin' : {'name': 'Oatmeal Raisin', 'price': '$1.00'},
-  'sugar' : {'name': 'Sugar', 'price': '$0.75'},
-  'peanut-butter' : {'name': 'Peanut Butter', 'price': '$0.50'},
-  'oatmeal' : {'name': 'Oatmeal', 'price': '$0.25'},
-  'salted-caramel' : {'name': 'Salted Caramel', 'price': '$1.00'},
-}
 
 @blueprint.route('/cookies/<slug>')
 def cookie(slug):
-  if slug in cookies_data:
-    return '<h1>' + cookies_data[slug]['name'] + '</h1>' + '<p>' + cookies_data[slug]['name'] + '</p>'
-  else:
-    return 'Sorry we could not find that cookie.' 
+  cookie = Cookie.query.filter_by(slug=slug).first_or_404()
+  return render_template('cookies/show.html', cookie=cookie)
 
 @blueprint.route('/cookies')
 def cookies():
-  return render_template('cookies/index.html', cookies=cookies_data)
+  all_cookies = Cookie.query.all()
+  return render_template('cookies/index.html', cookies=all_cookies)

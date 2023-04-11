@@ -5,3 +5,4 @@ class Cookie(db.Model):
   slug = db.Column(db.String(80), unique=True)
   name = db.Column(db.String(80))
   price = db.Column(db.Numeric(10, 2))
+  cookie_orders = db.relationship('CookieOrder', backref='cookie', lazy=True)
