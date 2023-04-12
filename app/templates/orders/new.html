@@ -5,7 +5,7 @@
 {% block body %}
   <h1>Checkout</h1>
 
-  <form>
+  <form method ="POST">
 
     <h2>Your Order:</h2>
     <ul>
@@ -42,8 +42,12 @@
       <label for="country">Country:</label>
       <input type="text" name="country" id="country" placeholder="Cookieland">
     </div>
+    
     <input type="submit" value="Submit Order">
 
   </form>
+  {% if error %}
+    <p style="color: tomato;">{{ error }}</p>
+  {% endif %}
   
 {% endblock %}
