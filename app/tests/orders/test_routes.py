@@ -1,4 +1,7 @@
 from app.orders.models import Order, Address
+from app.cookies.models import Cookie
+
+
 
 def test_get_checkout_renders(client):
   # Page loads and renders checkout
@@ -31,3 +34,20 @@ def test_post_checkout_creates_address(client):
     'country': 'Candyland'
   })
   assert Address.query.first().order_id is 1
+  
+def test_post_checkout_creates_cookie_order(client):
+  # Creates a cookie order related to the order
+  new_cookie = Cookie(slug='chocolate-chip', name='Chocolate Chip', price=1.50)
+  new_cookie.save()
+
+  response = client.post('/checkout', data={
+    'chocolate-chip': '2',
+    'name': 'Jane',
+    'street': '123 Main St',
+    'city': 'Anytown',
+    'state': 'CA',
+    'zip': '12345',
+    'country': 'Candyland'
+  })
+
+  assert Order.query.first().cookie_orders[0].number_of_cookies == 2
