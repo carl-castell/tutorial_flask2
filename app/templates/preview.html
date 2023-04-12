@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Orders{% endblock %}
+
+{% block body %}
+
+    <h1>Orders</h1>
+
+    <ul>
+        {% for order in orders %}
+          <li>
+            <h3>Date: {{ order.date }} Address: {{ order.address.name }}</h3>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <p style="color:red">Still in construction</p>
+    
+{% endblock %}
