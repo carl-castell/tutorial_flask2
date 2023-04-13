@@ -45,12 +45,12 @@ def post_login():
     elif not check_password_hash(user.password, request.form.get('password')):
       raise Exception('The password does not appear to be correct.')
     
+    login_user(user)
     return redirect(url_for('cookies.cookies'))
     
   except Exception as error_message:
     error = error_message or 'An error occurred while logging in. Please verify your email and password.'
     
-    login_user(user)
     return render_template('users/login.html', error=error)
 
 
