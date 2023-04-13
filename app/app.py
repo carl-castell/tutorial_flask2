@@ -1,6 +1,7 @@
 from flask import Flask
-from . import cookies, simple_pages, orders, api
+from . import cookies, simple_pages, orders, api, users
 from app.extensions.database import db, migrate
+from app.extensions.authentication import login_manager
 
 
 def create_app():
@@ -18,8 +19,10 @@ def register_blueprints(app: Flask):
   app.register_blueprint(simple_pages.routes.blueprint)
   app.register_blueprint(orders.routes.blueprint)
   app.register_blueprint(api.routes.blueprint)
+  app.register_blueprint(users.routes.blueprint)
   
 #Extentions  
 def register_extensions(app: Flask):
   db.init_app(app)
   migrate.init_app(app, db, compare_type=True)
+  login_manager.init_app(app)
