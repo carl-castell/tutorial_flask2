@@ -22,3 +22,11 @@ def preview():
   orders=Order.query.all()
   return render_template('preview.html',orders=orders)
 
+@blueprint.route('/run-seed')
+def run_seed():
+  if not Cookie.query.filter_by(slug='chocolate-chip').first():
+    import app.scripts.seed
+    return 'Database seed completed!'
+  else:
+    return 'Nothing to run.'
+

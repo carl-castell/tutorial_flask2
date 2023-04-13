@@ -13,6 +13,12 @@ if __name__ == '__main__':
   'peanut-butter' : {'name': 'Peanut Butter', 'price': 0.50},
   'oatmeal' : {'name': 'Oatmeal', 'price': 0.25},
   'salted-caramel' : {'name': 'Salted Caramel', 'price': 1.00},
+  'vanilla' : {'name': 'Vanilla', 'price': 2.60},
+  'rasperry' : {'name': 'Raspberry', 'price': 5.00},
+  'mint' : {'name': 'Mint', 'price': 4.30},
+  'lemon-apple' : {'name': 'Lemon Apple', 'price': 2.90},
+  'grannys-special' : {'name': 'Grannys Special', 'price': 9.99},
+  
 }
   
 for slug, cookie in cookies_data.items():
