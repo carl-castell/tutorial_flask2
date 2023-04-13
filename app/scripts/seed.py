@@ -6,7 +6,7 @@ if __name__ == '__main__':
   app = create_app()
   app.app_context().push()
   
-  cookies_data = {
+cookies_data = {
   'chocolate-chip' : {'name': 'Chocolate Chip', 'price': 1.50},
   'oatmeal-raisin' : {'name': 'Oatmeal Raisin', 'price': 1.00},
   'sugar' : {'name': 'Sugar', 'price': 0.75},
@@ -18,7 +18,6 @@ if __name__ == '__main__':
   'mint' : {'name': 'Mint', 'price': 4.30},
   'lemon-apple' : {'name': 'Lemon Apple', 'price': 2.90},
   'grannys-special' : {'name': 'Grannys Special', 'price': 9.99},
-  
 }
   
 for slug, cookie in cookies_data.items():
